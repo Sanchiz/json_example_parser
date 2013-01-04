@@ -1,0 +1,14 @@
+[
+  { "name":"Team Fortress 2",
+    "year":2007,
+    "price":0
+  },
+  { "name":"Warcraft III: The Frozen Throne",
+    "year":2003,
+    "price":13.9
+  },
+  { "name":"Diablo III",
+  "year":2012,
+  "price":33
+  }
+]

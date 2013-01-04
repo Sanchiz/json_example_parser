@@ -1,0 +1,31 @@
+<?php
+/**
+ * @file
+ * Json example parser - simple parser plugin
+ */
+
+/**
+ * Implementation of hook_feeds_plugins().
+ * Регистрация плагина в системе.
+ */
+function json_example_parser_feeds_plugins() {
+  $info = array();
+  $info['JsonExampleParser'] = array(
+    'name' => 'JSON parser',
+    'description' => 'Parses custom JSON.',
+    'handler' => array(
+      'parent' => 'FeedsParser', // родительский класс от которого наследуем парсер, стандартные классы Feeds - FeedsFetcher, FeedsParser и FeedsProcessor
+      'class' => 'JsonExampleParser', // название парсера, должно совпадать с ключем в массиве
+      'file' => 'JsonExampleParser.inc', // файл класса парсера
+      'path' => drupal_get_path('module', 'json_example_parser'), // путь к классу парсера
+    ),
+  );
+  return $info;
+}
+
+// очистка кеша плагинов при включении модуля
+function json_example_parser_enable() {
+  //clear the cache to display in Feeds as available plugin.
+  cache_clear_all('plugins:feeds:plugins', 'cache');
+}
+?>
